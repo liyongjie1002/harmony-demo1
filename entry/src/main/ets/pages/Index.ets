@@ -1,19 +1,22 @@
 import hilog from '@ohos.hilog'
+import router from '@ohos.router'
 @Entry
 @Component
 struct Index {
-  @State message: string = '你真好'
 
   build() {
    Column() {
-     Row({space: 20}) {
-       Text('123')
-       Text('222')
-     }.width('100%').justifyContent(FlexAlign.Center)
-     Row() {
-       Text('222')
-     }.width('100%').justifyContent(FlexAlign.Center)
-   }.height('100%')
-    .justifyContent(FlexAlign.Center)
+     Text('这是第一个页面')
+     Button() {
+       Text('跳转到第二个页面')
+     }.onClick(() => {
+       router.pushUrl(
+         {url: 'pages/SecondPage'}
+       )
+     })
+   }
+   .width('100%')
+   .height('100%')
+   .justifyContent(FlexAlign.Center)
   }
 }
